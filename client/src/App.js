@@ -19,7 +19,6 @@ function App() {
           display BubblePage when you're authenticated 
         */}
         <PrivateRoute
-          exact
           path="/protected"
           component={BubblePage}
           colorLost={colorList}

@@ -11,17 +11,10 @@ const ColorList = ({ colors, updateColors }) => {
   // console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
-  const [adding, setAdding] = useState(false);
 
   const editColor = color => {
     setEditing(true);
     setColorToEdit(color);
-    setAdding(false);
-  };
-
-  const addNewColor = () => {
-    setAdding(true);
-    setColorToEdit(initialColor);
   };
 
   // second post request
@@ -32,7 +25,6 @@ const ColorList = ({ colors, updateColors }) => {
       .then(response => {
         console.log("add", response);
         updateColors(response.data);
-        setAdding(false);
       });
   };
 
@@ -45,14 +37,6 @@ const ColorList = ({ colors, updateColors }) => {
       .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(response => {
         console.log("put edit response", response);
-        const editingColor = colors.map(color => {
-          if (color.id === colorToEdit.id) {
-            return response.data;
-          } else {
-            return color;
-          }
-        });
-        updateColors(editingColor);
         setEditing(false);
       })
       .catch(err => console.log("error", err.response));
