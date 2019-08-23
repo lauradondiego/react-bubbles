@@ -14,7 +14,7 @@ const BubblePage = () => {
     // this has the headers attached with it from axioswithauth
     .get("http://localhost:5000/api/colors")
     .then(response => {
-      console.log("get colors response", response);
+      // console.log("get colors response", response);
       setColorList(response.data);
       // this.setState({
       //   getFriends: response.data

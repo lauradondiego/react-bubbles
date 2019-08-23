@@ -12,13 +12,19 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Link to="/protected">Protected Page</Link>
+        <Link to="/protected">Let's See Some Bubbles!</Link>
         <Route exact path="/" component={Login} />
         {/* 
           Build a PrivateRoute component that will 
           display BubblePage when you're authenticated 
         */}
-        <PrivateRoute exact path="/protected" component={BubblePage} />
+        <PrivateRoute
+          exact
+          path="/protected"
+          component={BubblePage}
+          colorLost={colorList}
+          setColorList={setColorList}
+        />
       </div>
     </Router>
   );
