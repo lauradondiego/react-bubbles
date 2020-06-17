@@ -40,7 +40,7 @@ class Login extends React.Component {
     return (
       <div className="app">
         <h1>Welcome to the Bubble App!</h1>
-        <p>Build a login page here</p>
+        <p>Login</p>
         <div>
           <form onSubmit={this.login}>
             <input
